@@ -17,8 +17,11 @@ Is the target label
 
 ## c
 Is the perturbations degree of the attack
+
 if c is too high, the pertubations may be too little to success
+
 if c is too low, the pertubations may be too high to generate the attack target label
+
 c is usually between 0.001 to 1, we have set the default c as 0.01
 
 # Result 
