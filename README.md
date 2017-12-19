@@ -1,6 +1,11 @@
 # L-BFGS-Based-Adversarial-Input-Against-SVM-
 
 # Data Source
+For data, we will use the classic MNIST data set used to recognize hand-written digits. The dataset was originally produced in the 1980s and is now widely-used in machine learning classes as a simple image classification problem.
+
+And this is the source for our MNIST data set.
+
+http://yann.lecun.com/exdb/mnist/
 
 # Method
 ## L-BFGS
