@@ -39,7 +39,7 @@ if <img src="https://user-images.githubusercontent.com/2645110/34136543-61eee126
 
 eg.
 
-c is usually between 0.001 to 1, we have set the default c as 0.01
+<img src="https://user-images.githubusercontent.com/2645110/34136543-61eee126-e434-11e7-95c3-48c24471c4ea.png" width="20" height="20" /> is usually between 0.001 to 1, we have set the default c as 0.01
 
 # Result 
 For example, this picture shows an successful adversarial attack to mislead the system to predict 3 as 5
