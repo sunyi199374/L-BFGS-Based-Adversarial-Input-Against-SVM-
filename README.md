@@ -35,10 +35,16 @@ eg.
 c is usually between 0.001 to 1, we have set the default c as 0.01
 
 # Result 
-For example, this picture shows an adversarial attack to mislead the system to predict 3 as 5
+For example, this picture shows an successful adversarial attack to mislead the system to predict 3 as 5
 
-the left picture is original, the mid picture is the perturbation we add for adversarial attack, the right picture is the output
+the left picture is original, 
+
+the mid picture is the perturbation we add for adversarial attack, 
+
+the right picture is the output
 ![alt text](https://user-images.githubusercontent.com/2645110/34134760-aa82300a-e42a-11e7-81a1-54e86d21b59e.png)
+
+And here is an successful result for attacking image 5 to label 4,6,8
 
 
 # Conclusion
