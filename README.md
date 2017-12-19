@@ -30,7 +30,7 @@ eg.
 
 y_prime = 5
 
-## <img src="https://user-images.githubusercontent.com/2645110/34136543-61eee126-e434-11e7-95c3-48c24471c4ea.png" width="200" height="200" />
+## <img src="https://user-images.githubusercontent.com/2645110/34136543-61eee126-e434-11e7-95c3-48c24471c4ea.png" width="20" height="20" />
 The perturbations degree of the attack
 
 if ![alt text](https://user-images.githubusercontent.com/2645110/34136543-61eee126-e434-11e7-95c3-48c24471c4ea.png =100x20) is too high, the perturbations may be too little to success
