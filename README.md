@@ -30,12 +30,12 @@ eg.
 
 y_prime = 5
 
-## ![alt text](https://user-images.githubusercontent.com/2645110/34136543-61eee126-e434-11e7-95c3-48c24471c4ea.png)
+## ![alt text](https://user-images.githubusercontent.com/2645110/34136543-61eee126-e434-11e7-95c3-48c24471c4ea.png =100x20)
 The perturbations degree of the attack
 
-if ![alt text](https://user-images.githubusercontent.com/2645110/34136543-61eee126-e434-11e7-95c3-48c24471c4ea.png) is too high, the perturbations may be too little to success
+if ![alt text](https://user-images.githubusercontent.com/2645110/34136543-61eee126-e434-11e7-95c3-48c24471c4ea.png =100x20) is too high, the perturbations may be too little to success
 
-if ![alt text](https://user-images.githubusercontent.com/2645110/34136543-61eee126-e434-11e7-95c3-48c24471c4ea.png) is too low, the perturbations may be too high to generate the attack target label
+if ![alt text](https://user-images.githubusercontent.com/2645110/34136543-61eee126-e434-11e7-95c3-48c24471c4ea.png =100x20) is too low, the perturbations may be too high to generate the attack target label
 
 eg.
 
