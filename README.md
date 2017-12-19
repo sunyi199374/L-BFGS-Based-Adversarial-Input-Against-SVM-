@@ -50,11 +50,11 @@ the mid picture is the perturbation we add for adversarial attack,
 
 the right picture is the output
 
-<img src="https://user-images.githubusercontent.com/2645110/34134760-aa82300a-e42a-11e7-81a1-54e86d21b59e.png" width="20" height="20" /> 
+<img src="https://user-images.githubusercontent.com/2645110/34134760-aa82300a-e42a-11e7-81a1-54e86d21b59e.png" width="100" height="100" /> 
 
 The picture below is an successful result for attacking image 5 to label 4,6,8
 
-<img src="https://user-images.githubusercontent.com/2645110/34134983-e7f44544-e42b-11e7-9e7d-c678701b91fa.png" width="20" height="20" /> 
+<img src="https://user-images.githubusercontent.com/2645110/34134983-e7f44544-e42b-11e7-9e7d-c678701b91fa.png" width="100" height="100" /> 
 
 # Conclusion
 The following link is the report of this project.
