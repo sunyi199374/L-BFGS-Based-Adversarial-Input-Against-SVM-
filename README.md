@@ -15,18 +15,17 @@ Please check the report for more details.
 # Parameters
 There are three parameters are subject to change:
 ## x 
-Is the target picture to be attacked
+Is the target picture of a number to be attacked
 
 eg.
-
-
+x = 3
+![alt text](https://user-images.githubusercontent.com/2645110/34134759-aa78a5c6-e42a-11e7-8ecf-1efac9b06e42.png)
 
 ## y_prime
 Is the target label 
 
 eg.
-
-
+y_prime = 5
 
 ## c
 Is the perturbations degree of the attack
