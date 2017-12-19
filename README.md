@@ -21,7 +21,7 @@ eg.
 
 x = 3
 
-### ![alt text](https://user-images.githubusercontent.com/2645110/34134759-aa78a5c6-e42a-11e7-8ecf-1efac9b06e42.png)
+### <img src="https://user-images.githubusercontent.com/2645110/34134759-aa78a5c6-e42a-11e7-8ecf-1efac9b06e42.png" width="50" height="50" />
 
 ## y_prime
 The target label 
