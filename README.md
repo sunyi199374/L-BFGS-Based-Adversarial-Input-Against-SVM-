@@ -35,6 +35,7 @@ eg.
 c is usually between 0.001 to 1, we have set the default c as 0.01
 
 # Result 
+https://user-images.githubusercontent.com/2645110/34134760-aa82300a-e42a-11e7-81a1-54e86d21b59e.png
 
 
 # Conclusion
