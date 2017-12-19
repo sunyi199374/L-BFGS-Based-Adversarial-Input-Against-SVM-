@@ -26,16 +26,20 @@ eg.
 ## c
 Is the perturbations degree of the attack
 
-if c is too high, the pertubations may be too little to success
+if c is too high, the perturbations may be too little to success
 
-if c is too low, the pertubations may be too high to generate the attack target label
+if c is too low, the perturbations may be too high to generate the attack target label
 
 eg.
 
 c is usually between 0.001 to 1, we have set the default c as 0.01
 
 # Result 
+For example, this picture shows an adversarial attack to mislead the system to predict 3 as 5
+
+the left picture is original, the mid picture is the perturbation we add for adversarial attack, the right picture is the output
 ![alt text](https://user-images.githubusercontent.com/2645110/34134760-aa82300a-e42a-11e7-81a1-54e86d21b59e.png)
 
 
 # Conclusion
+
