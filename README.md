@@ -12,8 +12,16 @@ There are three parameters are subject to change:
 ## x 
 Is the target picture to be attacked
 
+eg.
+
+
+
 ## y_prime
 Is the target label 
+
+eg.
+
+
 
 ## c
 Is the perturbations degree of the attack
@@ -21,6 +29,8 @@ Is the perturbations degree of the attack
 if c is too high, the pertubations may be too little to success
 
 if c is too low, the pertubations may be too high to generate the attack target label
+
+eg.
 
 c is usually between 0.001 to 1, we have set the default c as 0.01
 
