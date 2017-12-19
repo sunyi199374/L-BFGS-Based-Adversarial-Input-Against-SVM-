@@ -28,7 +28,7 @@ The target label
 
 eg.
 
-y_prime = 5
+y_prime = [1,2,3,4,5,6,7,8,9]
 
 ## <img src="https://user-images.githubusercontent.com/2645110/34136543-61eee126-e434-11e7-95c3-48c24471c4ea.png" width="30" height="30" />
 The perturbations degree of the attack
