@@ -1,84 +1,9 @@
-
-# coding: utf-8
-
-# In[2]:
-
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import linear_model, preprocessing
 import scipy
-
-# In[4]:
-
-x_input = input("enter image number:")
-
-
-# In[6]:
-
-y_input = input("enter the target label(eg.[1,2,3]):")
-
-
-# In[7]:
-
-E = input("c value: ")
-
-
-# In[3]:
-
 from sklearn import datasets, linear_model, preprocessing
-digits = datasets.load_digits()
-images = digits.images
-labels = digits.target
-images.shape
-
-
-# In[4]:
-
 from sklearn.datasets import fetch_mldata
-mnist = fetch_mldata("MNIST original")
-mnist.data.shape
-
-
-# In[5]:
-
-Xdig = mnist.data
-ydig = mnist.target
-ydig=ydig.astype('int64')
-Xdig=Xdig*2/255-1
-
-
-# In[6]:
-
-def plt_digit(x):
-    nrow = 28
-    ncol = 28
-    xsq = x.reshape((nrow,ncol))
-    plt.imshow(xsq,  cmap='Greys_r')
-    plt.xticks([])
-    plt.yticks([])
-
-# Select random digits
-nplt = 4
-nsamp = Xdig.shape[0]
-Iperm = np.random.permutation(nsamp)
-
-# Plot the images using the subplot command
-for i in range(nplt):
-    ind = Iperm[i]
-    plt.subplot(1,nplt,i+1)
-    plt_digit(Xdig[ind,:])
-    plt.title(ydig[ind])
-
-
-# In[7]:
-
-class ImgException(Exception):
-    def __init__(self, msg='No msg'):
-        self.msg = msg
-
-
-# In[8]:
-
 import matplotlib.image as mpimg
 import skimage.io
 from skimage.filters import threshold_otsu
@@ -90,11 +15,23 @@ from skimage.transform import resize
 import matplotlib.patches as mpatches
 from skimage import data
 import skimage
-
-
-# In[9]:
-
 import os.path
+import random
+from sklearn import svm
+from sklearn.cross_validation import train_test_split as tts
+import scipy
+import scipy.optimize as opt
+import re
+
+############################################################################
+def plt_digit(x):
+    nrow = 28
+    ncol = 28
+    xsq = x.reshape((nrow,ncol))
+    plt.imshow(xsq,  cmap='Greys_r')
+    plt.xticks([])
+    plt.yticks([])
+
 def load_img(char_ind, samp_ind):
     """
     Returns the image from the dataset given a character and sample index.
@@ -181,63 +118,18 @@ def mnist_resize(img):
     img1[4:24,4:24]=img0
     return img1, box
 
-
-# In[11]:
-
-import random
-#Select ndig=5000 random samples from Xdigs and their labels in ydig.
-ndig=5000
-ind=list(range(70000))
-indn = random.sample(ind, ndig)
-X=Xdig[indn,:]
-y=ydig[indn]
-y=y.astype(int)
-
-
-# In[15]:
-
-import pickle
-pickle.dump(X,open('X.p', 'wb'))
-pkl_file = open('X.p', 'rb')
-
-
-
-# In[16]:
-
-X = pickle.load(pkl_file)
-
-
-# In[17]:
-
-from sklearn import svm
-from sklearn.cross_validation import train_test_split as tts
-svc = svm.SVC(probability=True,  kernel="rbf", C=2.8, gamma=.0273)
-Xtr,Xts,ytr,yts=tts(X,y,test_size=1/6,random_state=0)
-svc.fit(Xtr,ytr)
-
-
-# In[15]:
-
-yhat_ts = svc.predict(Xts)
-acc = np.mean(yhat_ts == yts)
-print('Accuaracy = {0:f}'.format(acc))
-
-
-# In[16]:
-
-import scipy
-import scipy.optimize as opt
-
-
-# In[17]:
+def fit_model(X,y):
+    Xtr,Xts,ytr,yts=tts(X,y,test_size=1/6,random_state=0)
+    svc.fit(Xtr,ytr)
+    yhat_ts = svc.predict(Xts)
+    acc = np.mean(yhat_ts == yts)
+    print('Accuaracy = {0:f}'.format(acc))
+    return acc
 
 def Dis(x,x1):
     d=x-x1
     D=((d**2).sum())**0.5
     return D
-
-
-# In[18]:
 
 def c_e(x1,y_prime):
     y1=[0,0,0,0,0,0,0,0,0,0]
@@ -246,9 +138,6 @@ def c_e(x1,y_prime):
     ce=-(y1*np.log(yh)).sum()
     return ce
 
-
-# In[23]:
-
 def l_fun(x1,*args):
     x=args[0]
     y_prime=args[1]
@@ -256,9 +145,6 @@ def l_fun(x1,*args):
     ly=svc.predict_proba([x1,x1])[0]
     l_f=c*Dis(x,x1)+c_e(x1,y_prime)
     return l_f
-
-
-# In[24]:
 
 def L_BFGS_B(x,y_prime,c):
     
@@ -269,17 +155,89 @@ def L_BFGS_B(x,y_prime,c):
     yh=svc.predict([x2,x2])
     return x2,yh[0],D
 
+def check_int_input(value):
+    try:
+        re.match('^[0-9]{1}$', value)
+    except:
+        print("input is wrong, please enter a valid integer")
+        
 
-# In[37]:
+##################################################################################
+
+#take custom input
+while True:
+    x_input = input("enter image number:")
+    if(re.match('^[0-9]{1}$', x_input)):
+        break
+    else:
+        print("input is wrong, please enter a valid integer: ")
+
+while True:
+    y_len = (input("how many different numbers you wanna attack: "))
+    if(re.match('^[0-9]{1}$', y_len)):
+        break
+    else:
+        print("input is wrong, please enter a valid integer")
+        
+y_input = []
+for i in range(int(y_len)):
+    while True:
+        y_digit = input("enter the target label(eg.1,2,3): ")
+        if(re.match('^[0-9]{1}$', y_digit)):
+            break
+        else:
+            print("there should be integers in the list")
+    y_input.append(int(y_digit))
+           
+while True:
+    try:
+        E = int(input("c value: "))
+    except:
+         print("input is wrong, please enter a valid integer")
+    else:
+        break
+
+#Initialization
+digits = datasets.load_digits()
+images = digits.images
+labels = digits.target
+images.shape
+svc = svm.SVC(probability=True,  kernel="rbf", C=2.8, gamma=.0273)
+
+mnist = fetch_mldata("MNIST original")
+mnist.data.shape
+
+#Load data and target
+ndig=5000
+ind=list(range(70000))
+indn = random.sample(ind, ndig)
+X=Xdig[indn,:]
+y=ydig[indn]
+y=y.astype(int)
+
+Xdig = mnist.data
+ydig = mnist.target
+ydig=ydig.astype('int64')
+Xdig=Xdig*2/255-1
+
+#fit the model and return the MNIST accuracy
+print("start fitting the data")
+acc = fit_model(X,y)
 
 #initial data
-x_num=x_input
+x_num = int(x_input)
 ind=np.where(y==x_num)[0]
 num=random.choice(ind)
+print(num)
 x=X[num,:]
 print('y={}'.format(y[num]))
 y_p=y_input
-t_num=length(y_p)
+t_num=len(y_p)
+
+print("this is image of number to be changed")
+# Plot the images using the subplot command
+plt_digit(x)
+
 for i in range(t_num):
     y_prime=y_p[i]
     print('the y_prime is {}'.format(i))
@@ -318,6 +276,4 @@ for i in range(t_num):
     plt_digit(x)
     plt.title(title[1])
 plt.savefig("result.png")
-
-
 
